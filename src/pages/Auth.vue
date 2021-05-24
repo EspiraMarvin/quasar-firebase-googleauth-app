@@ -23,7 +23,6 @@
         <q-tab-panel name="register">
           <AuthComponent :tab="tab"/>
         </q-tab-panel>
-
       </q-tab-panels>
     </q-card>
   </q-page>
