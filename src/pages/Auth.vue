@@ -31,7 +31,6 @@
 <script>
 import AuthComponent from "components/AuthComponent";
 export default {
-  name: 'PageIndex',
   components: { AuthComponent },
   data () {
     return {
