@@ -11,7 +11,7 @@
         class="flex flex-center q-px-lg q-py-sm q-mb-md"
         size="md"
         label="Google"
-        @click="btnLogin"
+        @click="google"
         color="primary"
       />
     </div>
@@ -75,8 +75,8 @@ export default {
     }
   },
   methods: {
-    btnLogin () {
-      console.log('jahaha')
+    google () {
+      console.log('google login/signup')
     },
     forgotPassword () {
       this.resetPwdDialog = true
