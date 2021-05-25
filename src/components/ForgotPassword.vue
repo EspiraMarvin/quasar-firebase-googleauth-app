@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
   name: "ForgotPassword",
   data (){
@@ -45,7 +46,12 @@ export default {
   },
   methods: {
     resetPassword () {
-      // firebase reset password
+      firebase.auth().sendPasswordResetEmail(this.form.email)
+        .then(() => {
+          this.form = {}
+          this.$q.notify({message: 'Check you email and reset your password.'})
+        })
+        .catch(error => { console.log(error)})
     }
   }
 }

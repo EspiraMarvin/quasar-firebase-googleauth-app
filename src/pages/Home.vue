@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex q-pa-md">
-      Welcome Home
+      Welcome Home {{ user }} <br> {{ email }}
     <q-space />
     <div>
       <q-btn
@@ -19,11 +19,23 @@ import firebase from "firebase";
 export default {
 name: "Home",
   data () {
-  return {}
+    return {
+      user: '',
+      email: ''
+    }
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((auth) => {
+      if (auth) {
+        this.user = auth.displayName
+        this.email = auth.email
+      } else {
+        console.log('user name is null')
+      }
+    })
   },
   methods: {
     logout() {
-      // console.log('logged out')
       firebase.auth().signOut()
       this.$router.push('/')
         .then(() => {
