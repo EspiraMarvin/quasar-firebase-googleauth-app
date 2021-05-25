@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-center">
-    <q-card style="width: 500px; max-width: 40vw;">
+    <q-card style="width: 500px; max-width: 80vw;">
       <q-card-section class="row items-center q-pb-none">
         <div class="text-h6">
           Reset Password
