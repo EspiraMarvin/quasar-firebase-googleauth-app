@@ -22,7 +22,7 @@
       <p class="text-center">Sign in with credentials</p>
     </template>
 
-    <q-form>
+    <q-form @submit="submitForm">
       <q-input
         v-model="formData.email"
         outlined
@@ -40,7 +40,8 @@
         <q-btn
           type="submit"
           color="primary"
-          :label="tab" />
+          :label="tab"
+        />
       </div>
     </q-form>
     <div class="text-center q-my-md">
@@ -76,6 +77,13 @@ export default {
     }
   },
   methods: {
+    submitForm () {
+      if (this.tab === 'login') {
+        this.signInExistingUser(this.formData.email, this.formData.password)
+      } else {
+        this.createUser(this.formData.email, this.formData.password)
+      }
+    },
     google () {
       const provider = new firebase.auth.GoogleAuthProvider()
       firebase.auth().signInWithPopup(provider)
@@ -85,6 +93,12 @@ export default {
         this.$router.push('/home')
       })
       .catch(error => console.log('error',error))
+    },
+    signInExistingUser (email, password) {
+      console.log(email, password)
+    },
+    createUser(email, password) {
+      console.log(email, password)
     },
     forgotPassword () {
       this.resetPwdDialog = true

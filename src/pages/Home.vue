@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex q-pa-md">
-      Welcome Home Username
+      Welcome Home
     <q-space />
     <div>
       <q-btn
