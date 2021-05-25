@@ -1,6 +1,6 @@
 <template>
   <div>
-    Welcome Home
+    Welcome Home Username
   </div>
 </template>
 

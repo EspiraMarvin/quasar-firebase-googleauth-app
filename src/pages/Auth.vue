@@ -34,22 +34,7 @@ export default {
   components: { AuthComponent },
   data () {
     return {
-      tab: 'login',
-      form: {
-        email: '',
-        password: ''
-      },
-      userAccountDialog: false,
-      resetPwdDialog: false,
-      dialogTitle: '',
-      method: ''
-    }
-  },
-  methods: {
-    btnLogin() {
-      this.userAccountDialog = true
-      this.method = 'sign in'
-      this.dialogTitle = 'Login Account'
+      tab: 'login'
     }
   }
 }
