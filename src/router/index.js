@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import firebase from "firebase";
+
 import routes from './routes'
 
 Vue.use(VueRouter)
@@ -24,6 +26,15 @@ export default function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> publicPath
     mode: process.env.VUE_ROUTER_MODE,
     base: process.env.VUE_ROUTER_BASE
+  })
+
+  Router.beforeEach(async (to, from, next) => {
+    const auth = to.meta.requiresAuth
+    if (auth && !await firebase.getCurrentUser()) {
+      next('/');
+    } else {
+      next();
+    }
   })
 
   return Router

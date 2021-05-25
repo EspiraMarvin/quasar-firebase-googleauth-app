@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import firebase from "firebase";
 import ForgotPassword from "components/ForgotPassword";
 export default {
   name: "AuthComponent",
@@ -76,7 +77,14 @@ export default {
   },
   methods: {
     google () {
-      console.log('google login/signup')
+      const provider = new firebase.auth.GoogleAuthProvider()
+      firebase.auth().signInWithPopup(provider)
+      .then(result => {
+        console.log('result', result)
+        this.$q.notify({message: 'Sign In Success.'})
+        this.$router.push('/home')
+      })
+      .catch(error => console.log('error',error))
     },
     forgotPassword () {
       this.resetPwdDialog = true

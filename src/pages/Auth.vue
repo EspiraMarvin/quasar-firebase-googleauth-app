@@ -14,7 +14,6 @@
         <q-tab name="register" label="Register" />
       </q-tabs>
 
-
       <q-tab-panels v-model="tab" animated>
         <q-tab-panel name="login">
           <AuthComponent :tab="tab" />
