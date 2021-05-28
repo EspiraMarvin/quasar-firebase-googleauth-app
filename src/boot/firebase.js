@@ -1,5 +1,6 @@
 import firebase from "firebase";
 
+//set vars to process.env
 const firebaseConfig = {
     apiKey: "AIzaSyCYSpgPVmvZYZNrWz2whxMcQ0qulqQ1wx4",
     authDomain: "quasar--auth.firebaseapp.com",
