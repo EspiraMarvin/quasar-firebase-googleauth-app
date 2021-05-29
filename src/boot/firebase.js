@@ -1,12 +1,12 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCYSpgPVmvZYZNrWz2whxMcQ0qulqQ1wx4",
-    authDomain: "quasar--auth.firebaseapp.com",
-    projectId: "quasar--auth",
-    storageBucket: "quasar--auth.appspot.com",
-    messagingSenderId: "608023091006",
-    appId: "1:608023091006:web:abb0169ff10f48c8173e6f"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID
   };
   firebase.initializeApp(firebaseConfig);
 
