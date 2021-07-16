@@ -1,4 +1,5 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 //set vars for process.env
 const firebaseConfig = {
@@ -9,8 +10,11 @@ const firebaseConfig = {
     messagingSenderId: "608023091006",
     appId: "1:608023091006:web:abb0169ff10f48c8173e6f"
   };
-  firebase.initializeApp(firebaseConfig);
 
+// if firebase isn't already initialize, initialize using the above credentials
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 firebase.getCurrentUser = () => {
     return new Promise((resolve, reject) => {
